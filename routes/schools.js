@@ -6,7 +6,8 @@ const router = express.Router();
 
 // Database Connection
 const db = mysql.createConnection({
-    host:"localhost",
+    // sir i tryed to load the .env files but it dont work i dont find out why but i make sure i will fix this ptoblem soon
+    host:"schoolmanagment-production.up.railway.app",
     user:"root",
     password:"Nityam123!@#",
     database:"school_management",
@@ -17,7 +18,7 @@ db.connect((err) => {
     console.log("MySQL Connected...");
 });
 
-// Add School API
+// School API section
 router.post("/addSchool", (req, res) => {
     const { name, address, latitude, longitude } = req.body;
 
@@ -32,7 +33,7 @@ router.post("/addSchool", (req, res) => {
     });
 });
 
-// List Schools API
+// List of school
 router.get("/listSchools", (req, res) => {
     const { latitude, longitude } = req.query;
 
